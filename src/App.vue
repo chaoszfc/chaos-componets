@@ -1,53 +1,67 @@
 <template>
   <div id="app">
-    <router-view></router-view>
-    
+      <el-container class="common-layout">
+      <el-header>Header</el-header>
+      <el-container>
+        <el-aside width="200px">
+          <ul>
+            <li v-for="(item, index) in routerList" :key="index" @click="goComponent(item.path)">
+              {{ item.name }}
+            </li>
+          </ul>
+        </el-aside>
+        <el-container>
+          <el-main>
+            <router-view></router-view>
+          </el-main>
+          <el-footer>Footer</el-footer>
+        </el-container>
+      </el-container>
+    </el-container>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app',
-  data () {
+  name: "app",
+  data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      routerList: [],
+    };
+  },
+  created() {
+    this.routerList = this.$router.options.routes;
+    console.log(this.routerList);
+  },
+  mounted() {
+    console.log(this.$router);
+  },
+  methods: {
+    goComponent(targetRouter) {
+      // this.$router.push(targetRouter)
     }
   },
-  mounted(){
-    console.log(222);
-    console.log($);
-  },
-  methods:{
-
-  }
-}
+};
 </script>
-
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.el-header,
+.el-footer {
+  background-color: #b3c0d1;
+  color: #333;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  height: 20%;
 }
-
-h1, h2 {
-  font-weight: normal;
+.el-aside {
+  background-color: #d3dce6;
+  color: #333;
+  text-align: center;
 }
-
-ul {
-  list-style-type: none;
-  padding: 0;
+.el-main {
+  background-color: #e9eef3;
+  color: #333;
+  text-align: center;
 }
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
+.common-layout {
+  height: 100%;
 }
 </style>
