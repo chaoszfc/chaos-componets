@@ -2,8 +2,13 @@
 	<div id="app" v-show="uploadShowStatus">
 		<input type="file" id="oFile" ref="inputfile" accept="image/*" @change="chooseImg()">
 		<div class="img-show-area" >
-			<div class="un-image"></div>
-			<img v-if="uploadFile" :src="uploadFile" alt="" style="width:300px;height:300px">
+			<div class="image-area">
+				<div class="un-image" v-if="!uploadFile">
+					<i class="h-line"></i>
+					<i class="s-line"></i>
+				</div>
+				<img v-else :src="uploadFile" alt="" style="width:150px;height:150px">
+			</div>
 		</div>
 		<a @click="uploadImg" class="upload-file-btn">上传图片</a>
 	</div>
@@ -48,8 +53,29 @@ export default {
 }
 </script>
 <style lang="css" scoped>
-	.un-image{
-
+	.image-area{
+		width:150px;
+		height: 150px;
+		position: relative;
+		border:1px solid #000;
+	}
+	.h-line{
+		position: absolute;
+		width:2px;
+		height: 100px;
+		left:50%;
+		top:50%;
+		transform: translate(0,-50%);
+		background: #000;
+	}
+	.s-line{
+		width:100px;
+		height: 2px;
+		position: absolute;
+		left:50%;
+		top:50%;
+		transform: translate(-50%,0);
+		background: #000;
 	}
 	.upload-file-btn{
 		display: block;
