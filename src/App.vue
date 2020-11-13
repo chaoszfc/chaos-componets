@@ -1,23 +1,6 @@
 <template>
   <div id="app">
-      <el-container class="common-layout">
-      <el-header>Header</el-header>
-      <el-container>
-        <el-aside width="200px">
-          <ul>
-            <li v-for="(item, index) in routerList" :key="index" @click="goComponent(item.path)">
-              {{ item.name }}
-            </li>
-          </ul>
-        </el-aside>
-        <el-container>
-          <el-main>
-            <router-view></router-view>
-          </el-main>
-          <el-footer>Footer</el-footer>
-        </el-container>
-      </el-container>
-    </el-container>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -26,20 +9,7 @@ export default {
   name: "app",
   data() {
     return {
-      routerList: [],
     };
-  },
-  created() {
-    this.routerList = this.$router.options.routes;
-    console.log(this.routerList);
-  },
-  mounted() {
-    console.log(this.$router);
-  },
-  methods: {
-    goComponent(targetRouter) {
-      // this.$router.push(targetRouter)
-    }
   },
 };
 </script>
@@ -63,5 +33,8 @@ export default {
 }
 .common-layout {
   height: 100%;
+}
+li{
+  list-style: none;
 }
 </style>
