@@ -4,7 +4,7 @@ import VueRouter from 'vue-router'
 import homePage from '@/home'
 import uploadFile from '@/uploadFile/uploadFile'
 import transferDialog from '@/transfer/transferDialog'
-
+import eatCaculate from '@/sport/eatCaculate'
 
 Vue.use(VueRouter)
 export default new VueRouter({
@@ -22,6 +22,10 @@ export default new VueRouter({
         path: '/transferDialog',
         name: '穿梭框',
         component: transferDialog
+      },{
+        path: '/eatCaculate',
+        name: '计算器',
+        component: eatCaculate
       }]
     },
     // {

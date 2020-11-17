@@ -2,7 +2,7 @@
   "name": "chaos-project",
   "description": "A Vue.js project",
   "version": "1.0.0",
-  "author": "zhengfenchao <zhengfenchao@richinfo.cn>",
+  "author": "zhengfenchao",
   "license": "MIT",
   "private": true,
   "scripts": {

@@ -1,11 +1,11 @@
 import axios from 'axios';
-import { Toast } from 'vant';
+import { Message } from 'element-ui';
 import { param } from 'jquery';
 
 //通过环境变量控制默认请求地址
 switch(process.env.NODE_ENV) {
     case 'development':
-    axios.defaults.baseURL = 'https://www.baidu.com';
+    axios.defaults.baseURL = location.host;
     break;
     case 'debug':
     axios.defaults.baseURL = 'https://www.baidu.com';
@@ -38,7 +38,13 @@ export function get(url,params){
         axios.get(url,{params:params}).then(res=>{
             reslove(res.data)
         }).catch(err => {
-            reject(err.data)
+            this.$message({
+                showClose: true,
+                message: '这是一条消息提示',
+                type: 'warning'
+            });
+            reject(err.datddddda)
+
         })
     })
 }
