@@ -1,18 +1,18 @@
-const mockjs = require('mockjs')
+import Mock from 'mockjs'
 import testMockIndex from './testMockIndex'
 function requestSuccess(data) {
   return {
     code: '0000',
     success: true,
     msg: '',
-    data
+    data:data
   }
 }
 
 //如果是开发环境，执行mock
 if( process.env.NODE_ENV === 'development' ) {
-  // console.log(process.env);
-  mockjs.mock('/test/mock', 'get', () => {
-    return requestSuccess(testMockIndex.testList)
+  console.log(Mock);
+  Mock.mock('/test/mock', 'get', () => {
+    return requestSuccess(testMockIndex.categoryList)
   })
 }
