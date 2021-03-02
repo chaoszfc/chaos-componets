@@ -15,4 +15,7 @@ if( process.env.NODE_ENV === 'development' ) {
   Mock.mock('/test/mock', 'get', () => {
     return requestSuccess(testMockIndex.categoryList)
   })
+  Mock.mock('/list/guixuList', 'get', () => {
+    return requestSuccess(testMockIndex.guixuList)
+  })
 }

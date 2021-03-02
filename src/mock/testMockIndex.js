@@ -46,8 +46,33 @@ const categoryList = {
     }
   ]
 }
+const guixuList = {
+  'guixuList': [
+    {
+      type: '抓鬼',
+      star: '☆',
+      price: '10000'
+    },
+    {
+      type: '抓鬼',
+      star: '☆☆☆',
+      price: '500000'
+    },
+    {
+      type: '共生',
+      star: '☆',
+      price: '500000'
+    },
+    {
+      type: '抓鬼',
+      star: '☆☆☆',
+      price: '1000000'
+    }
+  ]
+}
 const exmaine = {
   exmaineList,
-  categoryList
+  categoryList,
+  guixuList
 }
 export default exmaine

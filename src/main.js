@@ -4,6 +4,7 @@ import router from './router'
 import ElementUi from 'element-ui'            // 引入element-ui
 import axios from 'axios'
 import {post,get} from './request/axios'      // 引入axios
+import store from './store/store'
 
 // let echarts = require('echarts/lib/echarts');
 import echarts from 'echarts'
@@ -27,8 +28,9 @@ Vue.use(ElementUi);
 new Vue({
   el:'#app',
   router,
-  components:{App},
-  template:'<App/>',
+  store,
+  components:{ App },
+  template:'<App/>'
   // el: '#app',
   // router:router,
   // render: h => h(App)
